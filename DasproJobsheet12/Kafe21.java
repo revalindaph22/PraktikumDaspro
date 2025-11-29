@@ -27,6 +27,14 @@ tanpa menggunakan fungsi!
     di dalam main(). Modification Done.
 3. Jelaskan keuntungan menggunakan fungsi Menu() dibandingkan menulis semua 
 perintah penampilan menu langsung di dalam fungsi main. 
+    Kode lebih rapi, tidak ribet mengulangi baris print jika ingin dipanggil, memudahkan membacanya,
+    memudahkan pengembangan program jika program makin besar, memudahkan pemeliharaan (maintenance) 
+    jika ada menu baru
 4. Uraikan secara singkat alur eksekusi program ketika fungsi Menu() dipanggil dari main 
-(mulai dari program dijalankan sampai daftar menu tampil di layar).
+(mulai dari program dijalankan sampai daftar menu tampil di layar). 
+    Membuat class bernama Kafe21 sebagai wadah program, lalu mendefinisi sebuah method (kumpulan perintah) bernama Menu,
+    lalu memanggil S.O.P untuk mencetak judul menu, menu ke 1,2,3,4,5,6, garis pembatas, dan instruksi ke user untuk 
+    memilih menu ke layar, } menutup blok method Menu. Selanjutnya menjalankan method main (pintu masuk utama java) maka
+    progam akan mulai berjalan dan setelahnya memanggil method Menu tanpa parameter/objek, } menutup blok method main,
+    } menutup blok class Kafe21, setelah itu program di run dan keluar output an menu kafe.
 */
