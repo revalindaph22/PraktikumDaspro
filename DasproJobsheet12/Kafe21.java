@@ -23,18 +23,26 @@ public class Kafe21 { // mendeklarasi sebuah class bernama Kafe21 (wadah kode)
         
         if (kodePromo.equals("DISKON50")) { // membandingkan kodePromo dengan string "DISKON50" dengan memperhatikan besar/kecil
             System.out.println("Selamat " + namaPelanggan + "! Kamu mendapatkan diskon 50%"); // jika sama maka print diskon 50%
-            if (kodePromo.equals("DISKON30")) { // membandingkan lagi kodePromo dengan string "DISKON30" 
-                System.out.println("Selamat " + namaPelanggan + "! Kamu mendapatkan diskon 30%"); // jika sama maka print diskon 30%
-            }
+        } else if (kodePromo.equals("DISKON30")) { // membandingkan lagi kodePromo dengan string "DISKON30" 
+            System.out.println("Selamat " + namaPelanggan + "! Kamu mendapatkan diskon 30%"); // jika sama maka print diskon 30%
         } else { // jika tidak memenuhi kedua if diatas
-            System.out.println("Maaf kode invalid!"); // maka akan print kode invalid
+            System.out.println("Maaf, kode promo invalid!"); // maka akan print kode invalid
         }
     } // menutup blok menu
     
-    public static int hitungTotalHarga(int pilihanMenu, int banyakItem) { // method hitungTotalHarga yang mengembalikan int, parameter pilihanMenu (nomor menu), banyakItem (banyak unit dipesan)
+    public static int hitungTotalHarga(int pilihanMenu, int banyakItem, String kodePromo) { // method hitungTotalHarga yang mengembalikan int, parameter pilihanMenu (nomor menu), banyakItem (banyak unit dipesan)
         int[] hargaItems = {15000,20000,22000,12000,10000,18000}; // array bernama hargaItems yang menyimpan harga setiap menu
         
         int hargaTotal = hargaItems[pilihanMenu - 1] * banyakItem; // menghitung total: ambil harga dari array sesuai pilihanMenu dikurangi 1 karena array dimulai dari indeks 0, lalu dikalikan banyakItems.
+
+        if (kodePromo.equals("DISKON50")) {
+            hargaTotal -= hargaTotal * 50/100;
+        } else if (kodePromo.equals("DISKON30")) {
+            hargaTotal -= hargaTotal * 30/100;
+        } else {
+            System.out.println("Maaf, kode promo invalid!");
+        }
+
         return hargaTotal; // mengembalikan nilai hargaTotal ke pemanggil method, setelah ini method selesai
         
     } // menutup method hitungTotalHarga
@@ -47,11 +55,16 @@ public class Kafe21 { // mendeklarasi sebuah class bernama Kafe21 (wadah kode)
         System.out.print("Masukkan jumlah item yang ingin dipesan: "); // menampilkan prompt meminta jumlah item
         int banyakItem = Linda.nextInt(); // membaca angka ke banyakItem
 
-        int hargaTotal = hitungTotalHarga(pilihanMenu, banyakItem); // memanggil methodTotalHarga dengan argumen pilihanMenu dan banyakItem, hasil (total harga) disimpan di variabel hargaTotal
+        Linda.nextLine();
+
+        System.out.print("Masukkan kode promo: "); // menampilkan prompt meminta input kode promo
+        String kodePromo = Linda.nextLine(); // membaca teks kode promo yang di masukkan
+
+        int hargaTotal = hitungTotalHarga(pilihanMenu, banyakItem, kodePromo); // memanggil methodTotalHarga dengan argumen pilihanMenu dan banyakItem, hasil (total harga) disimpan di variabel hargaTotal
 
         System.out.println("Total harga untuk pesanan Anda: Rp" + hargaTotal); // menampilkan total harga pesana ke layar
 
-        Menu("Andi", "DISKON40", false); // memanggil method Menu, dengan menambahkan parameter namaPelanggan, kode promo, dan False/True untuk isMember
+        Menu("Andi", kodePromo, true); // memanggil method Menu, dengan menambahkan parameter namaPelanggan, kode promo, dan False/True untuk isMember
     }
 }
 
@@ -74,7 +87,7 @@ kodePromo. Jika kodePromo adalah "DISKON50", maka mendapat diskon 50% dari
 totalHarga dan tampilkan diskon. Jika kodePromo adalah "DISKON30", maka 
 mendapat diskon 30% dari totalHarga dan tampilkan diskon. Jika tidak ada kode 
 promo yang berlaku, tampilkan kode invalid dan tidak ada pengurangan total harga 
-totalHarga.
+totalHarga. Modification Done
 4. Modifikasi kode di atas sehingga bisa memilih beberapa jenis menu berbeda serta 
 menampilkan total keseluruhan pesanan. Bagaimana memodifikasi program sehingga 
 pengguna dapat: memesan lebih dari satu jenis menu (misalnya menu 1 dan 3 
