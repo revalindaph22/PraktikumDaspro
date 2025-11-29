@@ -1,8 +1,6 @@
 package DasproJobsheet12;
 
 import java.util.Scanner;
-
-// deklarasi Fungsi harus sebelum method main
 public class Kafe21 { // mendeklarasi sebuah class bernama Kafe21 (wadah kode)
     public static void Menu(String namaPelanggan,String kodePromo, boolean isMember) { // mendefinisikan method bernama Menu dengan parameter bernilai teks (nama),kode promosi, pelanggan member (true/false)
         System.out.println("Selamat datang, " + namaPelanggan + "!"); // print sapaan pelanggan dengan memasukkan parameter nama pelanggan
@@ -49,22 +47,32 @@ public class Kafe21 { // mendeklarasi sebuah class bernama Kafe21 (wadah kode)
     
     public static void main(String[] args) { // method main, pintu masuk program java
         Scanner Linda = new Scanner(System.in); // membuat objek scanner bernama Linda
+        int totalAkhir = 0;
+        int pilihanMenu = 0;
 
-        System.out.print("\nMasukkan nomor menu yang ingin Anda pesan: "); // menampilkan prompt meminta input nomor menu
-        int pilihanMenu = Linda.nextInt(); // membaca angka yang dimasukan user ke pemilihanMenu
-        System.out.print("Masukkan jumlah item yang ingin dipesan: "); // menampilkan prompt meminta jumlah item
-        int banyakItem = Linda.nextInt(); // membaca angka ke banyakItem
+        while (pilihanMenu != 0) { // looping selama menu bukan 0 lanjutkan input pesanan
+            System.out.print("\nMasukkan nomor menu yang ingin Anda pesan: "); // menampilkan prompt meminta input nomor menu
+            pilihanMenu = Linda.nextInt(); // membaca angka yang dimasukan user ke pemilihanMenu
+            
+            if (pilihanMenu == 0) // jika menu di isi 0
+                break; // maka behenti paksa
+                
+                System.out.print("Masukkan jumlah item yang ingin dipesan (0 untuk selesai): "); // menampilkan prompt meminta jumlah item
+                int banyakItem = Linda.nextInt(); // membaca angka ke banyakItem
+                
+                Linda.nextLine();  // untuk menghilangkan enter yang tersisa
+                
+                System.out.print("Masukkan kode promo: "); // menampilkan prompt meminta input kode promo
+                String kodePromo = Linda.nextLine(); // membaca teks kode promo yang di masukkan
+            
+                int hargaTotal = hitungTotalHarga(pilihanMenu, banyakItem, kodePromo); // memanggil methodTotalHarga dengan argumen pilihanMenu dan banyakItem, hasil (total harga) disimpan di variabel hargaTotal
+                System.out.println("Total harga untuk pesanan Anda: Rp " + hargaTotal); // menampilkan total harga pesana ke layar
 
-        Linda.nextLine();
-
-        System.out.print("Masukkan kode promo: "); // menampilkan prompt meminta input kode promo
-        String kodePromo = Linda.nextLine(); // membaca teks kode promo yang di masukkan
-
-        int hargaTotal = hitungTotalHarga(pilihanMenu, banyakItem, kodePromo); // memanggil methodTotalHarga dengan argumen pilihanMenu dan banyakItem, hasil (total harga) disimpan di variabel hargaTotal
-
-        System.out.println("Total harga untuk pesanan Anda: Rp" + hargaTotal); // menampilkan total harga pesana ke layar
-
-        Menu("Andi", kodePromo, true); // memanggil method Menu, dengan menambahkan parameter namaPelanggan, kode promo, dan False/True untuk isMember
+                totalAkhir += hargaTotal;
+                
+                Menu("Andi", kodePromo, true); // memanggil method Menu, dengan menambahkan parameter namaPelanggan, kode promo, dan False/True untuk isMember
+            }      
+        Linda.close();
     }
 }
 
@@ -92,6 +100,6 @@ totalHarga. Modification Done
 menampilkan total keseluruhan pesanan. Bagaimana memodifikasi program sehingga 
 pengguna dapat: memesan lebih dari satu jenis menu (misalnya menu 1 dan 3 
 sekaligus), dan menampilkan total keseluruhan pesanan (gabungan dari semua jenis 
-menu)? 
+menu)? Modification Done.
 
 */
