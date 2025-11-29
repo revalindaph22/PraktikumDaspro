@@ -56,7 +56,10 @@ tampilkan berikan diskon 50%. Jika kodePromo adalah "DISKON30", tampilkan berika
 promo yang berlaku, tampilkan kode invalid. Modification Done.
 7. Berdasarkan fungsi Menu() di atas, jika nama pelanggan adalah "Budi", pelanggan tersebut member, dan menggunakan
 kode promo "DISKON30", tuliskan satu baris perintah pemanggilan fungsi menu yang benar. 
+            Menu("Budi", "DISKON30", true); 
 8. Menurut Anda, apakah penggunaan parameter namaPelanggan dan isMember pada fungsi Menu() membuat program lebih mudah
 dibaca dan dikembangkan dibandingkan jika nilai-nilai tersebut ditulis langsung di dalam fungsi tanpa parameter? 
 Jelaskan alasan Anda.
+    Iya karena kita bisa pakai berulang kali tanpa menulis ulang kode, dan itu bisa untuk input yang berbeda. Kita ga perlu membuat
+    kode terpisah untuk setiap pelanggan cukup panggil Menu(parameter).
  */
