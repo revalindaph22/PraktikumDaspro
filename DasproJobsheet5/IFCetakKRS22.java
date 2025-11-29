@@ -1,4 +1,4 @@
-package jobsheet5;
+package DasproJobsheet5;
 import java.util.Scanner;
 
 public class IFCetakKRS22 {
