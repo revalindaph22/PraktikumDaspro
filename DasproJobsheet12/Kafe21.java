@@ -54,8 +54,11 @@ public class Kafe21 { // mendeklarasi sebuah class bernama Kafe21 (wadah kode)
         System.out.print("Apakah Anda member? (true/false): ");
         boolean member = Linda.nextBoolean();
         Linda.nextLine();
+        
+        System.out.print("Masukkan kode promo: "); // menampilkan prompt meminta input kode promo
+        String kodePromo = Linda.nextLine(); // membaca teks kode promo yang di masukkan
 
-        Menu(nama, "", member);
+        Menu(nama, kodePromo, member);
 
         int totalAkhir = 0;
         int pilihanMenu = -1;
@@ -71,8 +74,6 @@ public class Kafe21 { // mendeklarasi sebuah class bernama Kafe21 (wadah kode)
                 int banyakItem = Linda.nextInt(); // membaca angka ke banyakItem
                 Linda.nextLine();  // untuk menghilangkan enter yang tersisa
                 
-                System.out.print("Masukkan kode promo: "); // menampilkan prompt meminta input kode promo
-                String kodePromo = Linda.nextLine(); // membaca teks kode promo yang di masukkan
             
                 int hargaTotal = hitungTotalHarga(pilihanMenu, banyakItem, kodePromo); // memanggil methodTotalHarga dengan argumen pilihanMenu dan banyakItem, hasil (total harga) disimpan di variabel hargaTotal
                 System.out.println("Total harga untuk pesanan Anda: Rp " + hargaTotal); // menampilkan total harga pesana ke layar
