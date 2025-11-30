@@ -47,19 +47,28 @@ public class Kafe21 { // mendeklarasi sebuah class bernama Kafe21 (wadah kode)
     
     public static void main(String[] args) { // method main, pintu masuk program java
         Scanner Linda = new Scanner(System.in); // membuat objek scanner bernama Linda
+        
+        System.out.print("Masukkan nama pelanggan: ");
+        String nama = Linda.nextLine();
+
+        System.out.print("Apakah Anda member? (true/false): ");
+        boolean member = Linda.nextBoolean();
+        Linda.nextLine();
+
+        Menu(nama, "", member);
+
         int totalAkhir = 0;
-        int pilihanMenu = 0;
+        int pilihanMenu = -1;
 
         while (pilihanMenu != 0) { // looping selama menu bukan 0 lanjutkan input pesanan
-            System.out.print("\nMasukkan nomor menu yang ingin Anda pesan: "); // menampilkan prompt meminta input nomor menu
+            System.out.print("\nMasukkan nomor menu yang ingin Anda pesan (0 untuk selesai): "); // menampilkan prompt meminta input nomor menu
             pilihanMenu = Linda.nextInt(); // membaca angka yang dimasukan user ke pemilihanMenu
             
             if (pilihanMenu == 0) // jika menu di isi 0
                 break; // maka behenti paksa
                 
-                System.out.print("Masukkan jumlah item yang ingin dipesan (0 untuk selesai): "); // menampilkan prompt meminta jumlah item
+                System.out.print("Masukkan jumlah item yang ingin dipesan: "); // menampilkan prompt meminta jumlah item
                 int banyakItem = Linda.nextInt(); // membaca angka ke banyakItem
-                
                 Linda.nextLine();  // untuk menghilangkan enter yang tersisa
                 
                 System.out.print("Masukkan kode promo: "); // menampilkan prompt meminta input kode promo
@@ -69,10 +78,13 @@ public class Kafe21 { // mendeklarasi sebuah class bernama Kafe21 (wadah kode)
                 System.out.println("Total harga untuk pesanan Anda: Rp " + hargaTotal); // menampilkan total harga pesana ke layar
 
                 totalAkhir += hargaTotal;
-                
-                Menu("Andi", kodePromo, true); // memanggil method Menu, dengan menambahkan parameter namaPelanggan, kode promo, dan False/True untuk isMember
-            }      
-        Linda.close();
+            }         
+
+            System.out.println("\n=================================");
+            System.out.println("Total keseluruhan belanja: " + totalAkhir);
+            System.out.println("Terimakasih sudah berkunjung " + nama + "!");
+
+            Linda.close();
     }
 }
 
