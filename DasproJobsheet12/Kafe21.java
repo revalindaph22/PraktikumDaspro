@@ -1,5 +1,4 @@
 package DasproJobsheet12;
-
 import java.util.Scanner;
 public class Kafe21 { // mendeklarasi sebuah class bernama Kafe21 (wadah kode)
     public static void Menu(String namaPelanggan,String kodePromo, boolean isMember) { // mendefinisikan method bernama Menu dengan parameter bernilai teks (nama),kode promosi, pelanggan member (true/false)

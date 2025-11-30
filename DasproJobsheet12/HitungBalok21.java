@@ -1,22 +1,36 @@
+import java.util.Scanner;
+
 public class HitungBalok21 {
-    static void TampilHinggaKei(int i) {
-        for (int j = 0; j <= i; j++) {
-            System.out.print(j);
-        }
+    static int hitungLuas(int pjg, int lb) {
+        int Luas = pjg * lb;
+        return Luas;
     }
 
-    static int Jumlah(int bil1, int bil2){
-        return (bil1 + bil2);
+    static int hitungVolume(int tinggi, int a, int b) {
+        int volume = hitungLuas(a,b) * tinggi;
+        return volume;
     }
-
-    static void TampilJumlah(int bil1, int bil2) {
-        TampilHinggaKei(Jumlah(bil1,bil2));
-    }
-
 
     public static void main(String[] args) {
-        int temp = Jumlah(1,1);
-        TampilJumlah(temp, 5);
+        Scanner input = new Scanner(System.in);
+        int p, l, t, L, vol;
+
+        System.out.print("Masukkan panjang balok: ");
+        p = input.nextInt();
+
+        System.out.print("Masukkan lebar balok: ");
+        l = input.nextInt();
+
+        System.out.print("Masukkan tinggi balok: ");
+        t = input.nextInt();
+
+        L = hitungLuas(p, l);
+        System.out.println("Luas persegi panjang adalah " + L);
+
+        vol = hitungVolume(t,p,l);
+        System.out.println("Volume Balok adalah " + vol);
+
+        input.close();
     }
 }
 
